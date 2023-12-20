@@ -46,7 +46,7 @@ pkgs.stdenv.mkDerivation {
   meta = {
     description = "The runway CLI.";
     homepage = "https://runway.planetary-quantum.com/";
-    license = lib.licenses.proprietary;
+    license = lib.licenses.unfree;
 
     platforms = [
       "aarch64-darwin"
