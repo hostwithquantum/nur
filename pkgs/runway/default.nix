@@ -9,27 +9,27 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    i686-linux = "19d4np5c18n6dwm3kg1yi2hd4ax5kwv9s2l70pzf7swy1bcgb3az";
-    x86_64-linux = "00pisiw04324s9i5mawfrfnrd65wjhdjfrmi96axw3c26fa8wq0d";
-    aarch64-linux = "1nnh050s5jcri58krjs4n59zm11bmj906jm6fvmkjy88vd8w4smg";
-    x86_64-darwin = "192wp5brjgf0av3f99hr3hy9ha360s5j150202d3fgfil39c7bln";
     aarch64-darwin = "11jnm0209a1agqfps3zdpfxai335axvj16avs396vvaqc1rvj23m";
+    aarch64-linux = "1nnh050s5jcri58krjs4n59zm11bmj906jm6fvmkjy88vd8w4smg";
+    i686-linux = "19d4np5c18n6dwm3kg1yi2hd4ax5kwv9s2l70pzf7swy1bcgb3az";
+    x86_64-darwin = "192wp5brjgf0av3f99hr3hy9ha360s5j150202d3fgfil39c7bln";
+    x86_64-linux = "00pisiw04324s9i5mawfrfnrd65wjhdjfrmi96axw3c26fa8wq0d";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.3.5/runway_Darwin_x86_64.tar.gz";
     aarch64-darwin = "https://download.runway.horse/runway/1.3.5/runway_Darwin_arm64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_i386.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.3.5/runway_Darwin_x86_64.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_x86_64.tar.gz";
   };
 
   sourceRootMap = {
-    i686-linux = "runway_Linux_i386";
-    x86_64-linux = "runway_Linux_x86_64";
-    aarch64-linux = "runway_Linux_arm64";
-    x86_64-darwin = "runway_Darwin_x86_64";
     aarch64-darwin = "runway_Darwin_arm64";
+    aarch64-linux = "runway_Linux_arm64";
+    i686-linux = "runway_Linux_i386";
+    x86_64-darwin = "runway_Darwin_x86_64";
+    x86_64-linux = "runway_Linux_x86_64";
   };
 in
 pkgs.stdenv.mkDerivation {
