@@ -23,6 +23,14 @@ let
     x86_64-darwin = "https://download.runway.horse/runway/1.4.0/runway_Darwin_x86_64.tar.gz";
     aarch64-darwin = "https://download.runway.horse/runway/1.4.0/runway_Darwin_arm64.tar.gz";
   };
+
+  sourceRootMap = {
+    i686-linux = "runway_Linux_i386";
+    x86_64-linux = "runway_Linux_x86_64";
+    aarch64-linux = "runway_Linux_arm64";
+    x86_64-darwin = "runway_Darwin_x86_64";
+    aarch64-darwin = "runway_Darwin_arm64";
+  };
 in
 pkgs.stdenv.mkDerivation {
   pname = "runway";
@@ -32,7 +40,7 @@ pkgs.stdenv.mkDerivation {
     sha256 = shaMap.${system};
   };
 
-  sourceRoot = "runway_Darwin_arm64";
+  sourceRoot = sourceRootMap.${system};
 
   nativeBuildInputs = [ installShellFiles ];
 
