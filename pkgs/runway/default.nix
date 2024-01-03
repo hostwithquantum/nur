@@ -9,24 +9,24 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    i686-linux = "19d4np5c18n6dwm3kg1yi2hd4ax5kwv9s2l70pzf7swy1bcgb3az";
-    x86_64-linux = "00pisiw04324s9i5mawfrfnrd65wjhdjfrmi96axw3c26fa8wq0d";
-    aarch64-linux = "1nnh050s5jcri58krjs4n59zm11bmj906jm6fvmkjy88vd8w4smg";
-    x86_64-darwin = "192wp5brjgf0av3f99hr3hy9ha360s5j150202d3fgfil39c7bln";
-    aarch64-darwin = "11jnm0209a1agqfps3zdpfxai335axvj16avs396vvaqc1rvj23m";
+    i686-linux = "1vcrs15m9c0fj9d7mqgqi0kcqr5l0zibaa6d931rsnlcbf17lqsm";
+    x86_64-linux = "162b8i83x34lcnxcbkqvab8mj2d55a6lx2h6vqyzj3zn1c34l49p";
+    aarch64-linux = "183hgdc4djkz3pvrsv2f6xb1qimxv94gpknfv37d7p2b2risyd2w";
+    x86_64-darwin = "1p467gs2282cm41d3j5z85l757f8yczvqkq0vjbawd9xwdw506gq";
+    aarch64-darwin = "1yvss3zgsc85ks6bfz8ijjqk6k1pqs1lf39qfwq04x71yj9q7s1p";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.3.5/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.3.5/runway_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://download.runway.horse/runway/1.3.5/runway_Darwin_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.3.6/runway_Linux_i386.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.3.6/runway_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.3.6/runway_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.3.6/runway_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://download.runway.horse/runway/1.3.6/runway_Darwin_arm64.tar.gz";
   };
 in
 pkgs.stdenv.mkDerivation {
   pname = "runway";
-  version = "1.3.5";
+  version = "1.3.6";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
@@ -46,7 +46,7 @@ pkgs.stdenv.mkDerivation {
   meta = {
     description = "The runway CLI.";
     homepage = "https://runway.planetary-quantum.com/";
-    license = lib.licenses.proprietary;
+    license = lib.licenses.unfree;
 
     platforms = [
       "aarch64-darwin"
