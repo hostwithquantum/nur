@@ -9,30 +9,30 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    i686-linux = "1kl47kdwwj2xgx1bsg27rla8ibk0idyjg1m80762f5ldqprb02j5";
-    x86_64-linux = "05rw7bpq5rgrx9h7mbvv2sx6gggndmjdi900ajhn5j3v2m4dhaql";
-    aarch64-linux = "1m3ygw0l50qgdj7m26dwdxmiy8d8ljns10kkq7cy3ldn423jqbg0";
-    x86_64-darwin = "10a4sj58vl1f337pivvpfi47i0wz9jg3ds8habcw9b16k5md5i10";
-    aarch64-darwin = "0v52qdi6wmrjabwnnddb452m1w0my4n7n0j012mwmpf2wnbgixp3";
+    i686-linux = "12z25cl6xc7bizpaa95618v7769l4srnc0j152k9a3v10w87snp8";
+    x86_64-linux = "0bf27v950m9psmh63c02c66pbxrx5hkphlhiryin1wdx3fmrrsxd";
+    aarch64-linux = "1npazjlzdb8jirpgg16cgq6cxn1l8asyx60vxi0wri74kfaaxiwd";
+    x86_64-darwin = "10jdcm0h72kpk9s6kb4z3v46vmkg3km5sy4azlc90gl35jvw4kkw";
+    aarch64-darwin = "0bnxkbvh1jsgzyqnw88zq0n4liwh6rs084d5fi61gcxb44wf12x8";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.3.7/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.3.7/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.3.7/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.3.7/runway_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://download.runway.horse/runway/1.3.7/runway_Darwin_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.4.0/runway_Linux_i386.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.4.0/runway_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.4.0/runway_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.4.0/runway_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://download.runway.horse/runway/1.4.0/runway_Darwin_arm64.tar.gz";
   };
 in
 pkgs.stdenv.mkDerivation {
   pname = "runway";
-  version = "1.3.7";
+  version = "1.4.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
   };
 
-  sourceRoot = "runway_Darwin_x86_64";
+  sourceRoot = "runway_Darwin_arm64";
 
   nativeBuildInputs = [ installShellFiles ];
 
@@ -47,6 +47,8 @@ pkgs.stdenv.mkDerivation {
     description = "The runway CLI.";
     homepage = "https://runway.planetary-quantum.com/";
     license = lib.licenses.unfree;
+
+    sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
 
     platforms = [
       "aarch64-darwin"
