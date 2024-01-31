@@ -9,19 +9,19 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    i686-linux = "1x9xiqjgfslrgifzkg9nqfkdan93j8a99s3f5viwxwylvix4wy9h";
-    x86_64-linux = "0spkgvl76f9nn7x9pw0avzy93w4bkq3p0z39fpb6qgy9ky087yhm";
-    aarch64-linux = "0d1zcjc7q3agsrp9225gay9pi6zwwmdskfl8z4irlngcahscmr9k";
-    x86_64-darwin = "0ix2cddc1ynpxnwq1h4axzg90c36s2dfnz1g9haip428rcw5n65b";
-    aarch64-darwin = "1sb9i29x3k4imq9z437kq9jvz6f494b2001022w4k927lfdaa2ky";
+    i686-linux = "1czbjf1yryynzcfx2b73bkrq0g98mmzra3bywmymydgavwr7wsir";
+    x86_64-linux = "0ms0va8j4103dmdl6yqwybdy38php6q8bk2k3gdhsvqkgy59wywr";
+    aarch64-linux = "0yrb2rf8vy3lay64h3aixmy982sfqny3mmc77jnj97si7gqzq5g5";
+    x86_64-darwin = "0d95y0f0g32483js8agpy2zn9cjl4sy9170p6h5xbck38y0d2kwh";
+    aarch64-darwin = "1wnwmhz4ihvsm0nnbisyhi2640whgrikwa3770cxhzmvly2r0far";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.4.1/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.4.1/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.4.1/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.4.1/runway_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://download.runway.horse/runway/1.4.1/runway_Darwin_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.4.2/runway_Linux_i386.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.4.2/runway_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.4.2/runway_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.4.2/runway_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://download.runway.horse/runway/1.4.2/runway_Darwin_arm64.tar.gz";
   };
   sourceRootMap = {
     i686-linux = "runway_Linux_i386";
@@ -33,7 +33,7 @@ let
 in
 pkgs.stdenvNoCC.mkDerivation {
   pname = "runway";
-  version = "1.4.1";
+  version = "1.4.2";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
