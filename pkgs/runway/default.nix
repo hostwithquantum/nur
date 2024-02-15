@@ -2,26 +2,26 @@
 # vim: set ft=nix ts=2 sw=2 sts=2 et sta
 {
 system ? builtins.currentSystem
-, pkgs
 , lib
 , fetchurl
 , installShellFiles
+, stdenvNoCC
 }:
 let
   shaMap = {
-    i686-linux = "1czbjf1yryynzcfx2b73bkrq0g98mmzra3bywmymydgavwr7wsir";
-    x86_64-linux = "0ms0va8j4103dmdl6yqwybdy38php6q8bk2k3gdhsvqkgy59wywr";
-    aarch64-linux = "0yrb2rf8vy3lay64h3aixmy982sfqny3mmc77jnj97si7gqzq5g5";
-    x86_64-darwin = "0d95y0f0g32483js8agpy2zn9cjl4sy9170p6h5xbck38y0d2kwh";
-    aarch64-darwin = "1wnwmhz4ihvsm0nnbisyhi2640whgrikwa3770cxhzmvly2r0far";
+    i686-linux = "05jkznnnipaf95fjfxxm4k6pancrivray8j4yxqw56d1a6f1xjcr";
+    x86_64-linux = "1mnhaql73awvsqswwddhxyaxhcfgqw28zxaq1rv60skpdkr47jrh";
+    aarch64-linux = "1r1yc6wfz5igwdg16dxd89jc9kw27hhdvlq645khqbssx0iam4pd";
+    x86_64-darwin = "1prkq4wfq6fj9325x6rzqiah94ncm2szvkw4cr2vsazbv6frq1fx";
+    aarch64-darwin = "10984nwkvpvv7ijk7andnzzl731v8pwh6gv7h7k1f12rpsnn5k3g";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.4.2/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.4.2/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.4.2/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.4.2/runway_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://download.runway.horse/runway/1.4.2/runway_Darwin_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.4.3/runway_Linux_i386.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.4.3/runway_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.4.3/runway_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.4.3/runway_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://download.runway.horse/runway/1.4.3/runway_Darwin_arm64.tar.gz";
   };
   sourceRootMap = {
     i686-linux = "runway_Linux_i386";
@@ -31,9 +31,9 @@ let
     aarch64-darwin = "runway_Darwin_arm64";
   };
 in
-pkgs.stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "runway";
-  version = "1.4.2";
+  version = "1.4.3";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
