@@ -9,19 +9,19 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    i686-linux = "1g1qkadp087h33ynsnry9qwdcksr5gmxx6w8fwzj4wyg2ry8gxkz";
-    x86_64-linux = "0ss84q22c75nszmbj1xh3gjlb45z50sfp7akpq3a4dcafra90fvk";
-    aarch64-linux = "0gnnn45x9rhi2zswar28sy6947bq0gjfa7fnfgrz7vq9smjnaz7v";
-    x86_64-darwin = "02isz5agsw5nxazzhrqka8bw7mbx4f0ryn8fdafdyyvrwxcfpqls";
-    aarch64-darwin = "0gpxj91wkvxzi1d157iv04d5i9xpsiaqz0s1kw59f79vblxnp4na";
+    i686-linux = "1mh1nlmwai64rj3qwqrfvzd0d0k6l9icyiwnmnsqshs3h81iqzpf";
+    x86_64-linux = "0kdlxl0mpc420nb9s7kaircg5ji6davxy8hhizihph20h462vanz";
+    aarch64-linux = "19v2w50ycnqqpkd57i9s9wg6mv3vknanl7ycm9drmcwpc7r829j7";
+    x86_64-darwin = "03x9i3s4ipr1xcqjpbcndpzxq6adf843n01lvhy4a0d62wbd8lx4";
+    aarch64-darwin = "0k0vbdpjnp9cwi7pz9hqvc41ghh5yxxw8cbdk87bwwhj6z2w77zj";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.7.0/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.7.0/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.7.0/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.7.0/runway_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://download.runway.horse/runway/1.7.0/runway_Darwin_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.7.1/runway_Linux_i386.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.7.1/runway_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.7.1/runway_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.7.1/runway_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://download.runway.horse/runway/1.7.1/runway_Darwin_arm64.tar.gz";
   };
   sourceRootMap = {
     i686-linux = "runway_Linux_i386";
@@ -33,7 +33,7 @@ let
 in
 stdenvNoCC.mkDerivation {
   pname = "runway";
-  version = "1.7.0";
+  version = "1.7.1";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
