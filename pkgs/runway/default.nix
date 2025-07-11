@@ -9,19 +9,19 @@ system ? builtins.currentSystem
 }:
 let
   shaMap = {
-    i686-linux = "09sf1j0ka889y8hvgqkysn0bkald0g24vj6z3x8bzg3pdj7sc0k4";
-    x86_64-linux = "0rq8sqw3y24jrgfgn9qdaqyh51j2srs021121hq927giv1a54nml";
-    aarch64-linux = "0aw1l8p4il1xsgxm2pk33q5m5llng89brz36mj44f6fbfml3ah7a";
-    x86_64-darwin = "0ai6imk43l5vv4djz3k3471br5np50jh742szfj4ri0i8c5k1ijs";
-    aarch64-darwin = "00x3lyyg9a3cnmplzvc03gnsy9ypz8666ypxrbhssha04mrjg10w";
+    i686-linux = "0gbb53frinlpy1sr2a9j6dggdb3pi1k6r0bdcp7bdzfmj2gz00d9";
+    x86_64-linux = "0k1mhqb6zhnq0kvwzm4awpv9jn4yf2vl5l4z4z5f4s0652achy91";
+    aarch64-linux = "0s66rp7792mlrq7xchfs51phhxsiclmkvl0zcqy777mng7h8xdx6";
+    x86_64-darwin = "11v3kfbf19k9fdf4csk48xg7m0481b21r4wda8dvqp0va40w5sl5";
+    aarch64-darwin = "1167kazrg47rbx6w7nk67sq0mx40mba7dj80hqv96918sv4zwx0i";
   };
 
   urlMap = {
-    i686-linux = "https://download.runway.horse/runway/1.16.1/runway_Linux_i386.tar.gz";
-    x86_64-linux = "https://download.runway.horse/runway/1.16.1/runway_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://download.runway.horse/runway/1.16.1/runway_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://download.runway.horse/runway/1.16.1/runway_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://download.runway.horse/runway/1.16.1/runway_Darwin_arm64.tar.gz";
+    i686-linux = "https://download.runway.horse/runway/1.16.2/runway_Linux_i386.tar.gz";
+    x86_64-linux = "https://download.runway.horse/runway/1.16.2/runway_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://download.runway.horse/runway/1.16.2/runway_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://download.runway.horse/runway/1.16.2/runway_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://download.runway.horse/runway/1.16.2/runway_Darwin_arm64.tar.gz";
   };
   sourceRootMap = {
     i686-linux = "runway_Linux_i386";
@@ -33,7 +33,7 @@ let
 in
 stdenvNoCC.mkDerivation {
   pname = "runway";
-  version = "1.16.1";
+  version = "1.16.2";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
