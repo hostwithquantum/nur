@@ -8,15 +8,19 @@ on:
   schedule:
     - cron:  '51 4 * * *'
 
+permissions:
+  contents: read
+
 jobs:
   tests:
+    environment: cachix
     strategy:
       matrix:
         # FIXME(till): update when it works
         nurRepo:
           - <YOUR_REPO_NAME>
         cachixName:
-          - <YOUR_CACHIX_NAME>
+          - hostwithquantum-nur
         nixPath:
           - nixpkgs=channel:nixos-unstable
           - nixpkgs=channel:nixpkgs-unstable
@@ -25,8 +29,10 @@ jobs:
     env:
       NIXPKGS_ALLOW_UNFREE: 1
     steps:
-    - uses: actions/checkout@v4
-    - uses: cachix/install-nix-action@V27
+    - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+    - uses: cachix/install-nix-action@v27
       with:
         nix_path: "${{ matrix.nixPath }}"
         extra_nix_config: |
@@ -34,12 +40,11 @@ jobs:
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
-    - uses: cachix/cachix-action@v15
+    - uses: cachix/cachix-action@v17
       # Don't replace <YOUR_CACHIX_NAME> here!
       if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
       with:
         name: ${{ matrix.cachixName }}
-        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - name: Check evaluation
       run: |
